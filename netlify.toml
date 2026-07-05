@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
+
+[[form]]
+  name = "contact"
+  action = "/thanks/"
