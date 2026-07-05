@@ -2,6 +2,18 @@
   command = "npm run build"
   publish = "out"
 
+# 排除 admin 路径，让 Decap CMS 正常加载
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# SPA 路由转发（用于多国家路径）
 [[redirects]]
   from = "/*"
   to = "/:splat"

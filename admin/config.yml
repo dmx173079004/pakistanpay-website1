@@ -1,0 +1,91 @@
+# Decap CMS 配置
+# 后台地址: https://你的域名/admin/
+
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+# 不启用本地预览（因为需要构建后才能预览）
+display_url: /
+logo_url: https://okexpay.com/favicon.ico
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# 简体中文界面
+locale: 'zh_Hans'
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name: "settings"
+    label: "全局设置"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "contact"
+        label: "联系方式"
+        file: "src/data/cms/contact.json"
+        description: "修改网站底部和联系页面的联系方式"
+        fields:
+          - { label: "电话", name: "phone", widget: "string" }
+          - { label: "邮箱", name: "email", widget: "string" }
+          - { label: "Telegram", name: "telegram", widget: "string" }
+          - { label: "工作时间", name: "workingHours", widget: "string" }
+          - label: "社交渠道"
+            name: "channels"
+            widget: "list"
+            fields:
+              - { label: "名称", name: "name", widget: "string" }
+              - { label: "账号", name: "value", widget: "string" }
+
+  - name: "countries"
+    label: "国家内容"
+    label_singular: "国家"
+    description: "修改每个国家的首页标题和副标题"
+    editor:
+      preview: false
+    files:
+      - name: "pk"
+        label: "🇵🇰 巴基斯坦"
+        file: "src/data/cms/pk.json"
+        fields:
+          - { label: "首页标题", name: "heroTitle", widget: "string" }
+          - { label: "首页副标题", name: "heroSubtitle", widget: "string" }
+          - { label: "支付通道", name: "paymentChannel", widget: "string" }
+
+      - name: "bd"
+        label: "🇧🇩 孟加拉"
+        file: "src/data/cms/bd.json"
+        fields:
+          - { label: "首页标题", name: "heroTitle", widget: "string" }
+          - { label: "首页副标题", name: "heroSubtitle", widget: "string" }
+          - { label: "支付通道", name: "paymentChannel", widget: "string" }
+
+      - name: "in"
+        label: "🇮🇳 印度"
+        file: "src/data/cms/in.json"
+        fields:
+          - { label: "首页标题", name: "heroTitle", widget: "string" }
+          - { label: "首页副标题", name: "heroSubtitle", widget: "string" }
+          - { label: "支付通道", name: "paymentChannel", widget: "string" }
+
+      - name: "th"
+        label: "🇹🇭 泰国"
+        file: "src/data/cms/th.json"
+        fields:
+          - { label: "首页标题", name: "heroTitle", widget: "string" }
+          - { label: "首页副标题", name: "heroSubtitle", widget: "string" }
+          - { label: "支付通道", name: "paymentChannel", widget: "string" }
+
+      - name: "vn"
+        label: "🇻🇳 越南"
+        file: "src/data/cms/vn.json"
+        fields:
+          - { label: "首页标题", name: "heroTitle", widget: "string" }
+          - { label: "首页副标题", name: "heroSubtitle", widget: "string" }
+          - { label: "支付通道", name: "paymentChannel", widget: "string" }
